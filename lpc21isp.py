@@ -5,7 +5,7 @@ import os
 
 class LPC21ISP(object):
 
-    def __init__(self, serial_port, bin_path='./lpc21isp', baud_rate=230400, osc_rate=12000):
+    def __init__(self, serial_port, bin_path='./lpc21isp/lpc21isp', baud_rate=230400, osc_rate=12000):
         self.serial_port = serial_port
         self.osc_rate = osc_rate
         self.bin_path = bin_path
