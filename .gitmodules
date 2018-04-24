@@ -1,0 +1,3 @@
+[submodule "lpc21isp"]
+	path = lpc21isp
+	url = https://github.com/lnls-dig/lpc21isp
