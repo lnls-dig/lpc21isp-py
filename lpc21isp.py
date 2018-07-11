@@ -1,7 +1,10 @@
 import serial
 import subprocess
 from subprocess import CalledProcessError
+import sys
 import os
+
+PY3_OR_LATER = sys.version_info[0] >= 3
 
 class LPC21ISP(object):
 
@@ -35,8 +38,11 @@ class LPC21ISP(object):
         flags.extend([self.serial_port, str(self.baud_rate), str(self.osc_rate)])
 
         try:
-            output = subprocess.run(flags)
+            if PY3_OR_LATER:
+                ret = subprocess.run(flags).returncode
+            else:
+                ret = subprocess.call(flags)
         except CalledProcessError:
             raise
 
-        return True if (output.returncode == 10) else False
+        return True if (ret == 10) else False
