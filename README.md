@@ -31,7 +31,7 @@ lpc.program('test.bin')
 
 If the programming is successful, the function will return `True` value. If any errors happen, it will just return `False` or raise a `CalledProcessError`from the subproccess module
 
-## Know problems
+## Known problems
 
 1. The error handling in the module is really bad. The only exception raised are from the subprocess module and are related with problems when trying to call the `lpc21isp` binary itself.
 All the other problems (no serial port found, could not synchronize with device, protected memory regions, etc) are squashed into the `False` return value and not treated.
